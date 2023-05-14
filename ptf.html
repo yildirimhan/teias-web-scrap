@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head id="j_idt2">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <link rel="shortcut icon" href="/transparency/javax.faces.resource/images/favicon.ico.xhtml?ln=assets" type="image/x-icon" />
+      <link rel="icon" href="/transparency/javax.faces.resource/images/favicon.ico.xhtml?ln=assets" type="image/x-icon" />
+      <!--[if lte IE 8]>
+      <link rel="stylesheet" type="text/css" href="/transparency/resources/assets/css/ie.css" />
+      <![endif]-->
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/theme.css.xhtml?ln=primefaces-adamantium" />
+      <script type="text/javascript" src="/transparency/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&amp;v=6.2"></script><script type="text/javascript" src="/transparency/javax.faces.resource/jquery/jquery-plugins.js.xhtml?ln=primefaces&amp;v=6.2"></script><script type="text/javascript" src="/transparency/javax.faces.resource/core.js.xhtml?ln=primefaces&amp;v=6.2"></script><script type="text/javascript" src="/transparency/javax.faces.resource/components.js.xhtml?ln=primefaces&amp;v=6.2"></script>
+      <link type="text/css" rel="stylesheet" href="RES_NOT_FOUND" />
+      <script type="text/javascript" src="RES_NOT_FOUND"></script>
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/components.css.xhtml?ln=primefaces&amp;v=6.2" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/amcharts/plugins/export/export.css.xhtml?ln=assets" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/css/core-layout.css.xhtml?ln=adamantium-layout" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/css/animate.css.xhtml?ln=adamantium-layout" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/css/adamantium-font.css.xhtml?ln=adamantium-layout" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/css/ripple-effect.css.xhtml?ln=adamantium-layout" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/css/perfect-scrollbar.css.xhtml?ln=adamantium-layout" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/css/font-awesome.css.xhtml?ln=adamantium-layout" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/css/adamantium-layout.css.xhtml?ln=adamantium-layout" />
+      <link type="text/css" rel="stylesheet" href="/transparency/javax.faces.resource/css/custom.css.xhtml?ln=assets" />
+      <script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='tr_TR';}</script>
+      <style>
+         /* just some CSS for the loading DIV */
+         .loading {
+         position: fixed;
+         height: 100%;
+         width: 100%;
+         top: 0;
+         left: 0;
+         background: rgba(0, 0, 0, 0.9);
+         z-index: 9999;
+         font-size: 20px;
+         text-align: center;
+         padding-top: 200px;
+         color: #fff;
+         }
+      </style>
+      <script>
+         //<![CDATA[
+         $(document).ready(function () {
+             
+             $('form').on('submit', function () {
+                 $('.loading').show();
+             });
+             $(".content").hide(); // hides the content DIV
+         });
+         
+         // when all elements of the page are completely loaded, script below executes
+         $(window).load(function () {
+             $(".loading").fadeOut("slow"); // loading DIV fades out
+         });
+         //]]>
+         
+      </script>
+      <title>Piyasa Takas Fiyatı - Gün Öncesi Piyasası - Piyasalar | EPİAŞ Şeffaflık Platformu</title>
+      <script type="text/javascript" src="/transparency/javax.faces.resource/js/ripple-effect.js.xhtml?ln=adamantium-layout"></script><script type="text/javascript" src="/transparency/javax.faces.resource/js/perfect-scrollbar.js.xhtml?ln=adamantium-layout"></script><script type="text/javascript" src="/transparency/javax.faces.resource/js/layout.js.xhtml?ln=adamantium-layout"></script><script type="text/javascript" src="/transparency/javax.faces.resource/js/custom.js.xhtml?ln=assets"></script>
+   </head>
+   <body class="dark">
+      <div class="ie" style="display: none;">
+         <style>
+            .layout-topbar {
+            display: none !important;
+            }
+         </style>
+         <h1>Eski bir tarayıcı kullanıyorsunuz. Lütfen daha yeni bir tarayıcı kullanın.</h1>
+         <ul class="browserList">
+            <li><a href="https://www.google.com/chrome/" target="_blank" class="chrome"></a></li>
+            <li><a href="https://www.mozilla.org/tr/firefox/new/" target="_blank" class="firefox"></a></li>
+            <li><a href="http://www.opera.com/tr/computer/windows" target="_blank" class="opera"></a></li>
+            <li><a href="http://www.apple.com/tr/safari/" target="_blank" class="safari"></a></li>
+            <li><a href="http://windows.microsoft.com/tr-tr/internet-explorer/download-ie" target="_blank" class="iex"></a></li>
+         </ul>
+      </div>
+      <div class="loading"><img id="j_idt15" src="/transparency/javax.faces.resource/images/logo.png.xhtml?ln=assets" alt="" />
+         <br />Yükleniyor...
+      </div>
+      <!-- TOPBAR START -->
+      <div id="layout-topbar">
+         <a id="menu-button" class="Animated1">
+         <span id="menuline1" class="Animated05"></span>
+         <span id="menuline2" class="Animated05"></span>
+         <span id="menuline3" class="Animated05"></span>
+         </a>
+         <a href="/transparency/"><img id="logo" src="/transparency/javax.faces.resource/images/logo.png.xhtml?ln=assets" />
+         </a>
+         <a id="topmenu-button" class="Animated1">
+         <i class="icon-list2"></i>
+         </a>
+         <form id="j_idt22" name="j_idt22" method="post" action="/transparency/piyasalar/gop/ptf.xhtml" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="j_idt22" value="j_idt22" />
+            <ul id="top-menu" class="lang-menu">
+               <li><a id="j_idt22:j_idt24" href="#" class="ui-commandlink ui-widget menulink active" onclick="PrimeFaces.addSubmitParam('j_idt22',{'j_idt22:j_idt24':'j_idt22:j_idt24'}).submit('j_idt22');return false;PrimeFaces.onPost();">TR</a>
+               </li>
+               <li><a id="j_idt22:j_idt26" href="#" class="ui-commandlink ui-widget menulink " onclick="PrimeFaces.addSubmitParam('j_idt22',{'j_idt22:j_idt26':'j_idt22:j_idt26'}).submit('j_idt22');return false;PrimeFaces.onPost();">EN</a>
+               </li>
+               <!--&lt;li&gt;-->
+               <!--&lt;a class="menulink"&gt;&lt;i class="fa  fa-ellipsis-h"&gt;&lt;/i&gt;&lt;/a&gt;-->
+               <!--&lt;ul style="margin-left:-145px;"&gt;-->
+               <!--&lt;li&gt;&lt;a href="https://www.epias.com.tr/wp-content/uploads/2016/10/Web-Servis-%C5%9Eartnamesi-1.docx" target="_blank"&gt;-->
+               <!--&lt;i class="fa fa-angle-right"&gt;&lt;/i&gt; Web Servis &#350;artnamesi-->
+               <!--&lt;/a&gt;-->
+               <!--&lt;/li&gt;-->
+               <!--&lt;li&gt;-->
+               <!--&lt;a  href="/transparency/technical/tr/" target="_blank"&gt;-->
+               <!--&lt;i class="fa fa-angle-right"&gt;&lt;/i&gt; Web Servis Teknik Dok&uuml;man&#305;-->
+               <!--&lt;/a&gt;&lt;/li&gt;-->
+               <!--&lt;li&gt;-->
+               <!--&lt;a href="/transparency/resources/6363-16-EK-1.pdf"&gt;-->
+               <!--&lt;i class="fa fa-angle-right"&gt;&lt;/i&gt; Onaylanan Veriler-->
+               <!--&lt;/a&gt;-->
+               <!--&lt;/li&gt;-->
+               <!--&lt;/ul&gt;-->
+               <!--&lt;/li&gt;-->
+            </ul>
+            <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-8682634755801707540:8181594489163315100" autocomplete="off" />
+         </form>
+      </div>
+      <!-- TOPBAR END -->
+      <div class="layout-menu-cover-left Animated05" id="layout-menu-cover">
+         <form id="menuform" name="menuform" method="post" action="/transparency/piyasalar/gop/ptf.xhtml" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="menuform" value="menuform" />
+            <ul id="menuform:j_idt30" class="layout-menu">
+               <li id="menuform:dashboard" role="menuitem"><a class="menulink" href="/transparency/"><i class="icon-null"></i><i class="icon-home2 Fs16"></i> ANA SAYFA</a></li>
+               <li id="menuform:rm_orientation" role="menuitem">
+                  <a href="#" class="menulink"><i class="icon-null"></i><i class="fa fa-bar-chart-o Fs16"></i> PİYASALAR</a>
+                  <ul role="menu">
+                     <li id="menuform:gop" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  GÖP<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:ptf" role="menuitem"><a class="menulink active-menu" href="/transparency/piyasalar/gop/ptf.xhtml"><i class="icon-null"></i>  PTF</a></li>
+                           <li id="menuform:kesinlesmemisPtf" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/kesinlesmemisPtf.xhtml"><i class="icon-null"></i>  Kesinleşmemiş PTF</a></li>
+                           <li id="menuform:islemHacmi" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/islem-hacmi.xhtml"><i class="icon-null"></i>İşlem Hacmi</a></li>
+                           <li id="menuform:fiyattanBagimsizSatisTeklifi" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/fiyattan-bagimsiz-satis-teklifi.xhtml"><i class="icon-null"></i> Fiyattan Bağımsız Satış Teklifi</a></li>
+                           <li id="menuform:fiyattanBagimsizAlisTeklifi" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/fiyattan-bagimsiz-alis-teklifi.xhtml"><i class="icon-null"></i> Fiyattan Bağımsız Alış Teklifi</a></li>
+                           <li id="menuform:arzTalep" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/arz-talep.xhtml"><i class="icon-null"></i> Arz Talep</a></li>
+                           <li id="menuform:teklifEdilenAlisMiktari" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/teklif-edilen-alis-miktarlari.xhtml"><i class="icon-null"></i> Teklif Edilen Alış Miktarları</a></li>
+                           <li id="menuform:teklifEdilenSatisMiktari" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/teklif-edilen-satis-miktarlari.xhtml"><i class="icon-null"></i> Teklif Edilen Satış Miktarları</a></li>
+                           <li id="menuform:blokAlis" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/blok-alis-miktari.xhtml"><i class="icon-null"></i> Blok Alış Miktarı</a></li>
+                           <li id="menuform:blokSatis" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/blok-satis-miktari.xhtml"><i class="icon-null"></i> Blok Satış Miktarı</a></li>
+                           <li id="menuform:eslesmeMiktari" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/eslesme-miktari.xhtml"><i class="icon-null"></i> Eşleşme Miktarı</a></li>
+                           <li id="menuform:esnekAlisTeklifMiktari" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/esnek-alis-teklif-miktari.xhtml"><i class="icon-null"></i> Esnek Alış Teklif Miktarı</a></li>
+                           <li id="menuform:esnekSatisTeklifMiktari" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/esnek-satis-teklif-miktari.xhtml"><i class="icon-null"></i> Esnek Satış Teklif Miktarı</a></li>
+                           <li id="menuform:esnekTeklifEslesmeMiktari" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/esnek-teklif-eslesme-miktari.xhtml"><i class="icon-null"></i> Esnek Teklif Eşleşme Miktarları</a></li>
+                           <li id="menuform:farkFonu" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gop/fark-tutari.xhtml"><i class="icon-null"></i> Fark Tutarı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:gip" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  GİP<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt31" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gip/gip-agirlikli-ortalama-fiyat.xhtml"><i class="icon-null"></i> GİP Ağırlıklı Ortalama Fiyat</a></li>
+                           <li id="menuform:j_idt32" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gip/eslesme-miktari.xhtml"><i class="icon-null"></i> Eşleşme Miktarı</a></li>
+                           <li id="menuform:j_idt33" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gip/min-max-alis-teklif-fiyati.xhtml"><i class="icon-null"></i>  Min-Maks Alış Teklif Fiyatı</a></li>
+                           <li id="menuform:j_idt34" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gip/min-max-satis-teklif-fiyati.xhtml"><i class="icon-null"></i> Min-Maks Satış Teklif Fiyatı</a></li>
+                           <li id="menuform:j_idt35" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gip/min-max-eslesme-fiyat.xhtml"><i class="icon-null"></i> Min-Maks Eşleşme Fiyat</a></li>
+                           <li id="menuform:j_idt36" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gip/teklif-edilen-alis-satis-miktarlari.xhtml"><i class="icon-null"></i> Teklif Edilen Alış Satış Miktarları</a></li>
+                           <li id="menuform:j_idt37" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gip/islem-hacmi.xhtml"><i class="icon-null"></i> İşlem Hacmi</a></li>
+                           <li id="menuform:j_idt38" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gip/islem-akisi.xhtml"><i class="icon-null"></i> İşlem Akışı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:dgp" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  DGP<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt39" role="menuitem"><a class="menulink " href="/transparency/piyasalar/dgp/smf.xhtml"><i class="icon-null"></i> SMF</a></li>
+                           <li id="menuform:j_idt40" role="menuitem"><a class="menulink " href="/transparency/piyasalar/dgp/sistem-yonu.xhtml"><i class="icon-null"></i> Sistem Yönü</a></li>
+                           <li id="menuform:j_idt41" role="menuitem"><a class="menulink " href="/transparency/piyasalar/dgp/yal-talimat-miktarlari.xhtml"><i class="icon-null"></i> YAL Talimat Miktarları</a></li>
+                           <li id="menuform:j_idt42" role="menuitem"><a class="menulink " href="/transparency/piyasalar/dgp/yat-talimat-miktarlari.xhtml"><i class="icon-null"></i> YAT Talimat Miktarları</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:yanHizmetler" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i> Yan Hizmetler<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt43" role="menuitem"><a class="menulink " href="/transparency/piyasalar/yan-hizmetler/pfk-kapasite-bedeli.xhtml"><i class="icon-null"></i> PFK Fiyat</a></li>
+                           <li id="menuform:j_idt44" role="menuitem"><a class="menulink " href="/transparency/piyasalar/yan-hizmetler/primer-frekans-rezerv-miktari.xhtml"><i class="icon-null"></i> Primer Frekans Rezerv Miktarı</a></li>
+                           <li id="menuform:j_idt45" role="menuitem"><a class="menulink " href="/transparency/piyasalar/yan-hizmetler/sfk-kapasite-bedeli.xhtml"><i class="icon-null"></i> SFK Fiyat</a></li>
+                           <li id="menuform:j_idt46" role="menuitem"><a class="menulink " href="/transparency/piyasalar/yan-hizmetler/sekonder-frekans-rezerv-miktari.xhtml"><i class="icon-null"></i> Sekonder Frekans Rezerv Miktarı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:ikiliAnlasmalar" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  İkili Anlaşmalar<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt47" role="menuitem"><a class="menulink " href="/transparency/piyasalar/ikili-anlasmalar/alis-miktari.xhtml"><i class="icon-null"></i> Alış Miktarı</a></li>
+                           <li id="menuform:j_idt48" role="menuitem"><a class="menulink " href="/transparency/piyasalar/ikili-anlasmalar/satis-miktari.xhtml"><i class="icon-null"></i> Satış Miktarı</a></li>
+                           <li id="menuform:j_idt49" role="menuitem"><a class="menulink " href="/transparency/piyasalar/ikili-anlasmalar/euas-gts-ikili-anlasmalar.xhtml"><i class="icon-null"></i> EÜAŞ - GTŞ İkili Anlaşmalar</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:dengesizlik" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Dengesizlik<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt50" role="menuitem"><a class="menulink " href="/transparency/piyasalar/dengesizlik/dengesizlik-miktari.xhtml"><i class="icon-null"></i> Dengesizlik Miktarı</a></li>
+                           <li id="menuform:j_idt51" role="menuitem"><a class="menulink " href="/transparency/piyasalar/dengesizlik/dengesizlik-tutari.xhtml"><i class="icon-null"></i> Dengesizlik Tutarı</a></li>
+                           <li id="menuform:j_idt52" role="menuitem"><a class="menulink " href="/transparency/piyasalar/dengesizlik/dsg-dengesizlik-miktari.xhtml"><i class="icon-null"></i> DSG Dengesizlik Miktarı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt53" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  GDDK<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt54" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gddk/sayac-sayisi.xhtml"><i class="icon-null"></i> GDDK'ya Konu olan Sayaç Sayısı</a></li>
+                           <li id="menuform:j_idt55" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gddk/gddk-tutari.xhtml"><i class="icon-null"></i> GDDK Tutarı</a></li>
+                           <li id="menuform:j_idt56" role="menuitem"><a class="menulink " href="/transparency/piyasalar/gddk/sayac-hacmi.xhtml"><i class="icon-null"></i> GDDK'ya Konu olan Sayaç Hacim Verileri</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:genelVeriler" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Genel Veriler<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt57" role="menuitem"><a class="menulink " href="/transparency/piyasalar/genel-veriler/lisans-tipine-gore-katilimci-sayisi.xhtml"><i class="icon-null"></i> Lisans Türüne Göre Katılımcı Sayısı (Kamu ve Özel Sektör İçin)</a></li>
+                           <li id="menuform:j_idt58" role="menuitem"><a class="menulink " href="/transparency/piyasalar/genel-veriler/piyasa-katilimcilari-raporu.xhtml"><i class="icon-null"></i> Piyasa Katılımcıları</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li id="menuform:rm_orientation2" role="menuitem">
+                  <a href="#" class="menulink"><i class="icon-null"></i><i class="icon-bolt Fs16"></i> ÜRETİM</a>
+                  <ul role="menu">
+                     <li id="menuform:j_idt59" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Planlama<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt60" role="menuitem"><a class="menulink " href="/transparency/uretim/planlama/kgup.xhtml"><i class="icon-null"></i> KGÜP</a></li>
+                           <li id="menuform:j_idt61" role="menuitem"><a class="menulink " href="/transparency/uretim/planlama/kudup.xhtml"><i class="icon-null"></i> KUDÜP</a></li>
+                           <li id="menuform:j_idt62" role="menuitem"><a class="menulink " href="/transparency/uretim/planlama/eak.xhtml"><i class="icon-null"></i> EAK</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt63" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Gerçekleşen Üretim<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt64" role="menuitem"><a class="menulink " href="/transparency/uretim/gerceklesen-uretim/gercek-zamanli-uretim.xhtml"><i class="icon-null"></i> Gerçek Zamanlı Üretim</a></li>
+                           <li id="menuform:j_idt65" role="menuitem"><a class="menulink " href="/transparency/uretim/gerceklesen-uretim/uevm.xhtml"><i class="icon-null"></i> UEVM</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt66" role="menuitem"><a class="menulink " href="/transparency/uretim/lisansli-santral-yatirimlari.xhtml"><i class="icon-null"></i> Lisanslı Santral Yatırımları</a></li>
+                  </ul>
+               </li>
+               <li id="menuform:rm_orientation3" role="menuitem">
+                  <a href="#" class="menulink"><i class="icon-null"></i><i class="fa fa-plug Fs16"></i> TÜKETİM</a>
+                  <ul role="menu">
+                     <li id="menuform:j_idt67" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Tahmin<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt68" role="menuitem"><a class="menulink " href="/transparency/tuketim/tahmin/yuk-tahmin-plani.xhtml"><i class="icon-null"></i> Yük Tahmin Planı</a></li>
+                           <li id="menuform:j_idt69" role="menuitem"><a class="menulink " href="/transparency/tuketim/tahmin/talep-tahmini.xhtml"><i class="icon-null"></i> Talep Tahmini</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt70" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Gerçekleşen Tüketim<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt71" role="menuitem"><a class="menulink " href="/transparency/tuketim/gerceklesen-tuketim/gercek-zamanli-tuketim.xhtml"><i class="icon-null"></i> Gerçek Zamanlı Tüketim</a></li>
+                           <li id="menuform:j_idt72" role="menuitem"><a class="menulink " href="/transparency/tuketim/gerceklesen-tuketim/uecm.xhtml"><i class="icon-null"></i> UEÇM</a></li>
+                           <li id="menuform:j_idt73" role="menuitem"><a class="menulink " href="/transparency/tuketim/gerceklesen-tuketim/st-uecm.xhtml"><i class="icon-null"></i> ST UEÇM</a></li>
+                           <li id="menuform:j_idt74" role="menuitem"><a class="menulink " href="/transparency/tuketim/gerceklesen-tuketim/tedarik-yukumlulugu-kapsamindaki-uecm.xhtml"><i class="icon-null"></i> Tedarik Yükümlülüğü Kapsamındaki UEÇM</a></li>
+                           <li id="menuform:j_idt75" role="menuitem"><a class="menulink " href="/transparency/tuketim/gerceklesen-tuketim/yuzdesel-tuketim-bilgileri.xhtml"><i class="icon-null"></i> Yüzdesel Tüketim Bilgileri</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt76" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Profil Katsayıları<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt77" role="menuitem"><a class="menulink " href="/transparency/tuketim/profil-katsayilari/carpan-degeri.xhtml"><i class="icon-null"></i> Çarpan Değeri</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt78" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Genel Veriler<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt79" role="menuitem"><a class="menulink " href="/transparency/tuketim/genel-veriler/sayac-adedi.xhtml"><i class="icon-null"></i> Sayac Adedi</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt80" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i> Serbest Tüketici<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt81" role="menuitem"><a class="menulink " href="/transparency/tuketim/genel-veriler/serbest-tuketici-adedi.xhtml"><i class="icon-null"></i> Serbest Tüketici Adedi</a></li>
+                           <li id="menuform:j_idt82" role="menuitem"><a class="menulink " href="/transparency/tuketim/genel-veriler/serbest-tuketici-tuketim.xhtml"><i class="icon-null"></i> Serbest Tüketici Tüketim Miktarı</a></li>
+                           <li id="menuform:j_idt83" role="menuitem"><a class="menulink " href="/transparency/tuketim/genel-veriler/il-ilce-st-adedi.xhtml"><i class="icon-null"></i> İl, İlçe ST Adedi</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt84" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Tedarik Fiyat Endeksi<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt85" role="menuitem"><a class="menulink " href="/transparency/tuketim/tedarik-fiyat-endeksi/aylik-endeks.xhtml"><i class="icon-null"></i> Aylık Endeks</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt86" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Kesinti Bilgisi<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt87" role="menuitem"><a class="menulink " href="/transparency/tuketim/kesinti-bilgisi/planli-kesinti-bilgisi.xhtml"><i class="icon-null"></i> Planlı Kesinti Bilgisi</a></li>
+                           <li id="menuform:j_idt88" role="menuitem"><a class="menulink " href="/transparency/tuketim/kesinti-bilgisi/plansiz-kesinti-bilgisi.xhtml"><i class="icon-null"></i> Plansız Kesinti Bilgisi</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt89" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Tüketici Bilgisi<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt90" role="menuitem"><a class="menulink " href="/transparency/tuketim/tuketici-bilgisi/tuketici-sayisi.xhtml"><i class="icon-null"></i> Tüketici Sayısı</a></li>
+                           <li id="menuform:j_idt91" role="menuitem"><a class="menulink " href="/transparency/tuketim/tuketici-bilgisi/tuketim-miktarlari.xhtml"><i class="icon-null"></i> Tüketim Miktarları</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li id="menuform:j_idt92" role="menuitem">
+                  <a href="#" class="menulink"><i class="icon-null"></i><i class="fa  fa-refresh Fs16"></i>  YEKDEM</a>
+                  <ul role="menu">
+                     <li id="menuform:j_idt93" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/portfoy-geliri.xhtml"><i class="icon-null"></i> Portföy Geliri</a></li>
+                     <li id="menuform:j_idt94" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/dengesizlik-maliyeti.xhtml"><i class="icon-null"></i> Dengesizlik Maliyeti</a></li>
+                     <li id="menuform:j_idt95" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/dengesizlik-miktari.xhtml"><i class="icon-null"></i> Dengesizlik Miktarı</a></li>
+                     <li id="menuform:j_idt96" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/res-uretim-tahmin.xhtml"><i class="icon-null"></i> RES Üretim Tahmin</a></li>
+                     <li id="menuform:j_idt97" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Lisanslı Üretim Miktarı<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt98" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/lisansli-uretim-miktari/yekdem-lisansli-gercek-zamanli-uretim.xhtml"><i class="icon-null"></i> Gerçek Zamanlı Üretim</a></li>
+                           <li id="menuform:j_idt99" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/lisansli-uretim-miktari/yekdem-lisansli-uevm.xhtml"><i class="icon-null"></i> UEVM</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt100" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/lisanssiz-uretim-miktari.xhtml"><i class="icon-null"></i> Lisanssız Üretim Miktarı</a></li>
+                     <li id="menuform:j_idt101" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/lisanssiz-uretim-bedeli.xhtml"><i class="icon-null"></i> Lisanssız Üretim Bedeli</a></li>
+                     <li id="menuform:j_idt102" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/uretim-tahmini.xhtml"><i class="icon-null"></i> Üretim Tahmini</a></li>
+                     <li id="menuform:j_idt103" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/spot-teklifi.xhtml"><i class="icon-null"></i> Spot Teklifi</a></li>
+                     <li id="menuform:j_idt104" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/birim-maliyeti.xhtml"><i class="icon-null"></i> Birim Maliyeti</a></li>
+                     <li id="menuform:j_idt105" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/kurulu-guc.xhtml"><i class="icon-null"></i> Kurulu Güç</a></li>
+                     <li id="menuform:j_idt106" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/yek-bedeli-yekbed.xhtml"><i class="icon-null"></i> YEK Bedeli (YEKBED)</a></li>
+                     <li id="menuform:j_idt107" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/yek-geliri-yg.xhtml"><i class="icon-null"></i> YEK Geliri (YG)</a></li>
+                     <li id="menuform:j_idt108" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/toplam-gider-yektob.xhtml"><i class="icon-null"></i> Toplam Gider (YEKTOB)</a></li>
+                     <li id="menuform:j_idt109" role="menuitem"><a class="menulink " href="/transparency/uretim/yekdem/yekdem-katilimci-listesi.xhtml"><i class="icon-null"></i> Katılımcı Listesi</a></li>
+                  </ul>
+               </li>
+               <li id="menuform:rm_orientation4" role="menuitem" class="iletimIcon">
+                  <a href="#" class="menulink"><i class="icon-null"></i> İLETİM</a>
+                  <ul role="menu">
+                     <li id="menuform:j_idt110" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Sıfır Bakiye<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt111" role="menuitem"><a class="menulink " href="/transparency/iletim/sifir-bakiye/sifir-bakiye-duzeltme-tutari-aylik.xhtml"><i class="icon-null"></i> Sıfır Bakiye Düzeltme Tutarı Aylık</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt112" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Kısıtlar<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt113" role="menuitem"><a class="menulink " href="/transparency/iletim/kisitlar/iletim-sistemi-kayip-katsayisi.xhtml"><i class="icon-null"></i> İletim Sistemi Kayıp Katsayısı</a></li>
+                           <li id="menuform:j_idt114" role="menuitem"><a class="menulink " href="/transparency/iletim/kisitlar/kisit-maliyeti.xhtml"><i class="icon-null"></i> Kısıt Maliyeti</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt115" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Genel Veriler<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt116" role="menuitem"><a class="menulink " href="/transparency/iletim/genel-veriler/entso-e-x-kodlari.xhtml"><i class="icon-null"></i> ENTSO-E (X) Kodları</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt117" role="menuitem"><a class="menulink " href="/transparency/iletim/uluslararasi-hat-olaylari.xhtml"><i class="icon-null"></i> Enterkonneksiyon Arıza Bakım Bildirimleri</a></li>
+                     <li id="menuform:j_idt118" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Enterkonneksiyon Kapasitesine İlişkin Tahminler<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt119" role="menuitem"><a class="menulink " href="/transparency/iletim/enterkonneksiyon-kapsite-tahmin/yillik-tahmin.xhtml"><i class="icon-null"></i> Yıllık Tahminler</a></li>
+                           <li id="menuform:j_idt120" role="menuitem"><a class="menulink " href="/transparency/iletim/enterkonneksiyon-kapsite-tahmin/aylik-tahmin.xhtml"><i class="icon-null"></i> Aylık Tahminler</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt121" role="menuitem"><a class="menulink " href="/transparency/iletim/hat-kapasiteleri.xhtml"><i class="icon-null"></i> Hat Kapasiteleri</a></li>
+                     <li id="menuform:j_idt122" role="menuitem"><a class="menulink " href="/transparency/iletim/kapasite-talepleri.xhtml"><i class="icon-null"></i> Kapasite Talepleri</a></li>
+                     <li id="menuform:j_idt123" role="menuitem"><a class="menulink " href="/transparency/iletim/nomine-kapasite.xhtml"><i class="icon-null"></i> Nomine Kapasite</a></li>
+                  </ul>
+               </li>
+               <li id="menuform:rm_orientation5" role="menuitem">
+                  <a href="#" class="menulink"><i class="icon-null"></i><i class="fa fa-fire Fs16"></i> DOĞAL GAZ İLETİM </a>
+                  <ul role="menu">
+                     <li id="menuform:j_idt124" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  TMB<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt125" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/tmb/giris-miktari.xhtml"><i class="icon-null"></i> Giriş Miktarı</a></li>
+                           <li id="menuform:j_idt126" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/tmb/cikis-miktari.xhtml"><i class="icon-null"></i> Çıkış Miktarı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt127" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Sanal Ticaret<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt128" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/sanal-ticaret/transfer.xhtml"><i class="icon-null"></i> Transfer</a></li>
+                           <li id="menuform:j_idt129" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/sanal-ticaret/gun-oncesi.xhtml"><i class="icon-null"></i> Gün Öncesi (UDN)</a></li>
+                           <li id="menuform:j_idt130" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/sanal-ticaret/gun-sonu.xhtml"><i class="icon-null"></i> Gün Sonu (UDN)</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt131" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Kapasite<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt132" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/kapasite/max-giris-miktari.xhtml"><i class="icon-null"></i> Maks Giriş Miktarı</a></li>
+                           <li id="menuform:j_idt133" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/kapasite/max-cikis-miktari.xhtml"><i class="icon-null"></i> Maks Çıkış Miktarı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt134" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Rezerve<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt135" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/rezerve/giris-miktari.xhtml"><i class="icon-null"></i> Giriş Miktarı</a></li>
+                           <li id="menuform:j_idt136" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/rezerve/cikis-miktari.xhtml"><i class="icon-null"></i> Çıkış Miktarı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt137" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Gerçekleşme<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt138" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/gerceklesme/giris-miktari.xhtml"><i class="icon-null"></i> Giriş Miktarı</a></li>
+                           <li id="menuform:j_idt139" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/gerceklesme/cikis-miktari.xhtml"><i class="icon-null"></i> Çıkış Miktarı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt140" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stok-miktari.xhtml"><i class="icon-null"></i> Stok Miktarı</a></li>
+                     <li id="menuform:j_idt141" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Depolama<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt142" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/depolama/gunluk-gerceklesme-miktari.xhtml"><i class="icon-null"></i> Günlük Gerçekleşme Miktarı</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li id="menuform:rm_orientation6" role="menuitem">
+                  <a href="#" class="menulink"><i class="icon-null"></i><i class="fa fa-fire Fs16"></i> DOĞAL GAZ STP</a>
+                  <ul role="menu">
+                     <li id="menuform:j_idt143" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i> Fiyat<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt144" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-grf.xhtml"><i class="icon-null"></i> Gaz Referans Fiyatı(GRF)</a></li>
+                           <li id="menuform:j_idt145" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-price.xhtml"><i class="icon-null"></i> Fiyatlar</a></li>
+                           <li id="menuform:j_idt146" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-dgf.xhtml"><i class="icon-null"></i> Dengeleme Gazı Fiyatları (DGF)</a></li>
+                           <li id="menuform:j_idt147" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-hrf.xhtml"><i class="icon-null"></i> Haftalık Referans Fiyatı (HRF)</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt148" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i> Eşleşme Miktarı<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt149" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-toplam-eslesme-miktar.xhtml"><i class="icon-null"></i> Toplam Eşleşme Miktarı</a></li>
+                           <li id="menuform:j_idt150" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-haftalik-eslesme-miktar.xhtml"><i class="icon-null"></i> Haftalık Eşleşme Miktarı</a></li>
+                           <li id="menuform:j_idt151" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-grf-eslesme-miktar.xhtml"><i class="icon-null"></i> GRF Eşleşme Miktarı</a></li>
+                           <li id="menuform:j_idt152" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-gunluk-eslesme-miktar.xhtml"><i class="icon-null"></i> Günlük Eşleşme Miktarı</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt153" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i> İşlem Hacmi<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt154" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-toplam-islem-hacmi.xhtml"><i class="icon-null"></i> Toplam İşlem Hacmi</a></li>
+                           <li id="menuform:j_idt155" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-haftalik-islem-hacmi.xhtml"><i class="icon-null"></i> Haftalık İşlem Hacmi</a></li>
+                           <li id="menuform:j_idt156" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-gunluk-islem-hacmi.xhtml"><i class="icon-null"></i> Günlük İşlem Hacmi</a></li>
+                           <li id="menuform:j_idt157" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-grf-islem-hacmi.xhtml"><i class="icon-null"></i> GRF İşlem Hacmi</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt158" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i> İlave Dengeleyici İşlemleri<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt159" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-greencode-operation.xhtml"><i class="icon-null"></i> 1 Kodlu İşlemler</a></li>
+                           <li id="menuform:j_idt160" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-bluecode-operation.xhtml"><i class="icon-null"></i> 2 Kodlu İşlemler</a></li>
+                           <li id="menuform:j_idt161" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-orangecode-operation.xhtml"><i class="icon-null"></i> 3 Kodlu İşlemler</a></li>
+                           <li id="menuform:j_idt162" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-fourcode-operation.xhtml"><i class="icon-null"></i> 4 Kodlu İşlemler</a></li>
+                           <li id="menuform:j_idt163" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-additional-notifications.xhtml"><i class="icon-null"></i> İlave Dengeleyici Bildirimleri</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt164" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i> Tahsisat Verileri<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt165" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-fiziki-gerceklesme.xhtml"><i class="icon-null"></i> Fiziki Gerçekleşme</a></li>
+                           <li id="menuform:j_idt166" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-sanal-gerceklesme.xhtml"><i class="icon-null"></i> Sanal Gerçekleşme</a></li>
+                           <li id="menuform:j_idt167" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-sistem-yonu.xhtml"><i class="icon-null"></i> Sistem Yönü</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt168" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i> Dengesizlik<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt169" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-imbalance-system.xhtml"><i class="icon-null"></i> Dengesizlik Sistem</a></li>
+                           <li id="menuform:j_idt170" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-imbalance-amount.xhtml"><i class="icon-null"></i> Dengesizlik Tutarı</a></li>
+                           <li id="menuform:j_idt171" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-allowance.xhtml"><i class="icon-null"></i> Dengesizlik Taşıtan</a></li>
+                        </ul>
+                     </li>
+                     <li id="menuform:j_idt172" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-bast.xhtml"><i class="icon-null"></i> BAST</a></li>
+                     <li id="menuform:j_idt173" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-gddk-tutari.xhtml"><i class="icon-null"></i> GDDK Tutarı</a></li>
+                     <li id="menuform:j_idt174" role="menuitem"><a class="menulink " href="/transparency/dogalgaz/stp/stp-transaction-history.xhtml"><i class="icon-null"></i> İşlem Akışı</a></li>
+                  </ul>
+               </li>
+               <li id="menuform:j_idt175" role="menuitem" class="barajlarIcon">
+                  <a href="#" class="menulink"><i class="icon-null"></i>  BARAJLAR</a>
+                  <ul role="menu">
+                     <li id="menuform:j_idt176" role="menuitem"><a class="menulink " href="/transparency/barajlar/gunluk-kot.xhtml"><i class="icon-null"></i> Günlük Kot</a></li>
+                     <li id="menuform:j_idt177" role="menuitem"><a class="menulink " href="/transparency/barajlar/aktif-doluluk.xhtml"><i class="icon-null"></i> Aktif Doluluk</a></li>
+                     <li id="menuform:j_idt178" role="menuitem"><a class="menulink " href="/transparency/barajlar/aktif-hacim.xhtml"><i class="icon-null"></i> Aktif Hacim</a></li>
+                     <li id="menuform:j_idt179" role="menuitem"><a class="menulink " href="/transparency/barajlar/gunluk-hacim.xhtml"><i class="icon-null"></i> Günlük Hacim</a></li>
+                     <li id="menuform:j_idt180" role="menuitem"><a class="menulink " href="/transparency/barajlar/suyun-enerji-karsiligi.xhtml"><i class="icon-null"></i> Suyun Enerji Karşılığı</a></li>
+                     <li id="menuform:damInfos" role="menuitem">
+                        <a href="#" class="menulink"><i class="icon-null"></i>  Baraj Bilgileri<i class="icon-add Fright Fs16"></i></a>
+                        <ul class="menu-level-1" role="menu">
+                           <li id="menuform:j_idt181" role="menuitem"><a class="menulink " href="/transparency/barajlar/baraj-bilgileri/kot.xhtml"><i class="icon-null"></i> Kot</a></li>
+                           <li id="menuform:j_idt182" role="menuitem"><a class="menulink " href="/transparency/barajlar/baraj-bilgileri/hacim.xhtml"><i class="icon-null"></i> Hacim</a></li>
+                           <li id="menuform:j_idt183" role="menuitem"><a class="menulink " href="/transparency/barajlar/baraj-bilgileri/debi-ve-kurulu-guc.xhtml"><i class="icon-null"></i> Debi ve Kurulu Güç</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li id="menuform:j_idt184" role="menuitem"><a class="menulink " href="/transparency/piyasa-mesaj-sistemi.xhtml"><i class="icon-null"></i><i class="icon-megaphone Fs16"></i> PİYASA MESAJ SİSTEMİ</a></li>
+               <li id="menuform:j_idt185" role="menuitem">
+                  <a href="#" class="menulink"><i class="icon-null"></i><i class="fa fa-asterisk Fs16 "></i>  WEB SERVİS</a>
+                  <ul role="menu">
+                     <li id="menuform:j_idt186" role="menuitem"><a class="menulink" href="https://www.epias.com.tr/wp-content/uploads/2018/02/TR_API_PORTALI_KULLANICI_KILAVUZU.pdf" target="_blank"><i class="icon-null"></i> Kullanım Klavuzu</a></li>
+                     <li id="menuform:j_idt187" role="menuitem"><a class="menulink" href="https://www.epias.com.tr/wp-content/uploads/2016/10/Web-Servis-%C5%9Eartnamesi-1.docx" target="_blank"><i class="icon-null"></i> Web Servis Şartnamesi</a></li>
+                     <li id="menuform:j_idt188" role="menuitem"><a class="menulink" href="https://seffaflik.epias.com.tr/transparency/technical/tr/" target="_blank"><i class="icon-null"></i> Teknik Dökümantasyon</a></li>
+                     <li id="menuform:j_idt189" role="menuitem"><a class="menulink" href="https://apiportal.epias.com.tr/exchange/tr" target="_blank"><i class="icon-null"></i> API Portal</a></li>
+                  </ul>
+               </li>
+               <li id="menuform:j_idt190" role="menuitem"><a class="menulink" href="https://www.epias.com.tr/wp-content/uploads/2018/07/seffaflık-platformu-yayimlanacak-veriler-listesi.pdf" target="_blank"><i class="icon-null"></i><i class="fa fa-file-text-o "></i> KURUL KARARI (YENİ)</a></li>
+            </ul>
+            <script type="text/javascript">Adamantium.restoreMenuState();</script><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:1" value="-8682634755801707540:8181594489163315100" autocomplete="off" />
+         </form>
+         <div id="social_media_links" style="text-align: center;position: fixed;bottom: 0px;left: 0px;padding: 0px 0px 15px 70px;">
+            <a href="https://twitter.com/borsaenerjiTR" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:#fff;background-color: #101D49;padding: 10px;margin-right: 10px;border-radius: 20px;"></i></a>
+            <a href="https://www.linkedin.com/company/epias" target="_blank"><i class="fa fa-linkedin" aria-hidden="true" style="color:#fff;background-color: #101D49;padding: 10px;margin-right: 10px;border-radius: 20px;"></i></a>
+            <a href="https://www.epias.com.tr" target="_blank" style="padding: 10px;border-radius: 20px;background: #101D49;display: inline-block;width: 15px;height: 15px;top: 4px;position: relative;">
+            <img src="/transparency/resources/assets/images/epias-logo.png" style="position: relative;left: -2px;" />
+            </a>
+         </div>
+      </div>
+      <div id="layout-portlets-cover">
+         <div class="Container100">
+            <div class="ContainerIndent">
+               <form id="j_idt194" name="j_idt194" method="post" action="/transparency/piyasalar/gop/ptf.xhtml" enctype="application/x-www-form-urlencoded">
+                  <input type="hidden" name="j_idt194" value="j_idt194" />
+                  <div id="j_idt194:j_idt195" class="ui-breadcrumb ui-module ui-widget ui-widget-header ui-helper-clearfix ui-corner-all" role="menu">
+                     <ul>
+                        <li role="menuitem"><a tabindex="-1" class="ui-menuitem-link ui-corner-all ui-icon ui-icon-home" href="/transparency/"><span class="ui-menuitem-text">Ana Sayfa</span></a></li>
+                        <li class="ui-breadcrumb-chevron ui-icon ui-icon-triangle-1-e"></li>
+                        <li role="menuitem"><a tabindex="-1" class="ui-menuitem-link ui-corner-all" href="#" onclick="return false;"><span class="ui-menuitem-text">Piyasalar</span></a></li>
+                        <li class="ui-breadcrumb-chevron ui-icon ui-icon-triangle-1-e"></li>
+                        <li role="menuitem"><a tabindex="-1" class="ui-menuitem-link ui-corner-all" href="#" onclick="return false;"><span class="ui-menuitem-text">Gün Öncesi Piyasası</span></a></li>
+                        <li class="ui-breadcrumb-chevron ui-icon ui-icon-triangle-1-e"></li>
+                        <li role="menuitem"><a tabindex="-1" class="ui-menuitem-link ui-corner-all" href="#" onclick="return false;"><span class="ui-menuitem-text">Piyasa Takas Fiyatı (PTF)</span></a></li>
+                     </ul>
+                  </div>
+                  <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:2" value="-8682634755801707540:8181594489163315100" autocomplete="off" />
+               </form>
+            </div>
+         </div>
+         <div class="Container100">
+            <div class="ContainerIndent">
+               <h1 id="contentTitle" style="color: #656565;" class="Fleft">Piyasa Takas Fiyatı (PTF)
+               </h1>
+               <a id="fade" name="fade" href="#"><span class="fa fa-info-circle Fs20 Blue Fleft titleInfo"> </span></a>
+               <div id="toolTipFade" class="ui-tooltip ui-widget ui-tooltip-right">
+                  <div class="ui-tooltip-arrow"></div>
+                  <div class="ui-tooltip-text ui-shadow ui-corner-all">-Piyasa Takas Fiyatı, Gün Öncesi Piyasası'na sunulan tekliflerin arz ve talebe göre eşleşmesiyle oluşan saatlik elektrik enerjisi fiyatıdır. <br>-Gösterge niteliğindeki Türkiye Cumhuriyet Merkez Bankası döviz alış kuru esas alınmıştır.</div>
+               </div>
+               <script id="toolTipFade_s" type="text/javascript">$(function(){PrimeFaces.cw("Tooltip","widget_toolTipFade",{id:"toolTipFade",showEffect:"fade",hideEffect:"fade",target:"fade",escape:false,trackMouse:true});});</script>
+            </div>
+         </div>
+         <form id="j_idt206" name="j_idt206" method="post" action="/transparency/piyasalar/gop/ptf.xhtml" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="j_idt206" value="j_idt206" />
+            <div class="Container100">
+               <div class="ContainerIndent">
+                  <div class="Card">
+                     <div class="Container20 Responsive100 calendarFilter">
+                        <div class="filterItemRow">
+                           <i class="fa  fa-calendar Fs14 PadRight5"></i><label id="j_idt206:j_idt208" class="ui-outputlabel ui-widget" for="j_idt206:date1_input">Başlangıç Tarihi: </label>
+                        </div>
+                        <div>
+                           <span id="j_idt206:date1" class="ui-calendar"><input id="j_idt206:date1_input" name="j_idt206:date1_input" type="text" value="22.10.2020" class="ui-inputfield ui-widget ui-state-default ui-corner-all" aria-labelledby="j_idt206:j_idt208" /></span><script id="j_idt206:date1_s" type="text/javascript">$(function(){PrimeFaces.cw("Calendar","widget_j_idt206_date1",{id:"j_idt206:date1",popup:true,locale:"tr",dateFormat:"dd.mm.yy",defaultDate:"22.10.2020",changeMonth:true,changeYear:true,mask:"99.99.9999"});});</script>
+                        </div>
+                     </div>
+                     <div class="Container20 Responsive100 calendarFilter">
+                        <div class="filterItemRow">
+                           <i class="fa  fa-calendar Fs14 PadRight5"></i><label id="j_idt206:j_idt211" class="ui-outputlabel ui-widget" for="j_idt206:date2_input">Bitiş Tarihi: </label>
+                        </div>
+                        <div>
+                           <span id="j_idt206:date2" class="ui-calendar"><input id="j_idt206:date2_input" name="j_idt206:date2_input" type="text" value="22.10.2020" class="ui-inputfield ui-widget ui-state-default ui-corner-all" aria-labelledby="j_idt206:j_idt211" /></span><script id="j_idt206:date2_s" type="text/javascript">$(function(){PrimeFaces.cw("Calendar","widget_j_idt206_date2",{id:"j_idt206:date2",popup:true,locale:"tr",dateFormat:"dd.mm.yy",defaultDate:"22.10.2020",changeMonth:true,changeYear:true,mask:"99.99.9999"});});</script>
+                        </div>
+                     </div>
+                     <div class="Container5 Responsive100">
+                        <div class="filterItemRow filterButton">
+                           <button id="j_idt206:goster" name="j_idt206:goster" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" onclick="PrimeFaces.onPost();" type="submit"><span class="ui-button-text ui-c">Uygula</span></button><script id="j_idt206:goster_s" type="text/javascript">PrimeFaces.cw("CommandButton","widget_j_idt206_goster",{id:"j_idt206:goster"});</script>
+                        </div>
+                     </div>
+                     <div class="EmptyBox10"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="Container40 Responsive100">
+               <div class="ContainerIndent">
+                  <div class="Card">
+                     <div id="j_idt206:dt" class="ui-datatable ui-widget container100 Responsive100" style="margin-bottom:20px">
+                        <div class="ui-datatable-tablewrapper">
+                           <table role="grid">
+                              <thead id="j_idt206:dt_head">
+                                 <tr role="row">
+                                    <th id="j_idt206:dt:j_idt215" class="ui-state-default TexAlCenter" role="columnheader" aria-label="Tarih" scope="col"><span class="ui-column-title">Tarih</span></th>
+                                    <th id="j_idt206:dt:j_idt217" class="ui-state-default TexAlCenter" role="columnheader" aria-label="Saat" scope="col"><span class="ui-column-title">Saat</span></th>
+                                    <th id="j_idt206:dt:j_idt219" class="ui-state-default TexAlCenter" role="columnheader" aria-label="PTF (TL/MWh)" scope="col"><span class="ui-column-title">PTF (TL/MWh)</span></th>
+                                    <th id="j_idt206:dt:j_idt221" class="ui-state-default TexAlCenter" role="columnheader" aria-label="PTF (USD/MWh)" scope="col"><span class="ui-column-title">PTF (USD/MWh)</span></th>
+                                    <th id="j_idt206:dt:j_idt223" class="ui-state-default TexAlCenter" role="columnheader" aria-label="PTF (EUR/MWh)" scope="col"><span class="ui-column-title">PTF (EUR/MWh)</span></th>
+                                 </tr>
+                              </thead>
+                              <tfoot id="j_idt206:dt_foot">
+                                 <tr>
+                                    <td class="ui-state-default TexAlRight" colspan="2">Aritmetik Ortalama: </td>
+                                    <td class="ui-state-default">294,93</td>
+                                    <td class="ui-state-default">37,45</td>
+                                    <td class="ui-state-default">31,76</td>
+                                 </tr>
+                              </tfoot>
+                              <tbody id="j_idt206:dt_data" class="ui-datatable-data ui-widget-content">
+                                 <tr data-ri="0" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">00:00</td>
+                                    <td role="gridcell" class="TexAlCenter">282,03</td>
+                                    <td role="gridcell" class="TexAlCenter">35,81</td>
+                                    <td role="gridcell" class="TexAlCenter">30,37</td>
+                                 </tr>
+                                 <tr data-ri="1" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">01:00</td>
+                                    <td role="gridcell" class="TexAlCenter">257,18</td>
+                                    <td role="gridcell" class="TexAlCenter">32,65</td>
+                                    <td role="gridcell" class="TexAlCenter">27,69</td>
+                                 </tr>
+                                 <tr data-ri="2" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">02:00</td>
+                                    <td role="gridcell" class="TexAlCenter">234,00</td>
+                                    <td role="gridcell" class="TexAlCenter">29,71</td>
+                                    <td role="gridcell" class="TexAlCenter">25,20</td>
+                                 </tr>
+                                 <tr data-ri="3" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">03:00</td>
+                                    <td role="gridcell" class="TexAlCenter">224,99</td>
+                                    <td role="gridcell" class="TexAlCenter">28,57</td>
+                                    <td role="gridcell" class="TexAlCenter">24,23</td>
+                                 </tr>
+                                 <tr data-ri="4" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">04:00</td>
+                                    <td role="gridcell" class="TexAlCenter">224,78</td>
+                                    <td role="gridcell" class="TexAlCenter">28,54</td>
+                                    <td role="gridcell" class="TexAlCenter">24,20</td>
+                                 </tr>
+                                 <tr data-ri="5" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">05:00</td>
+                                    <td role="gridcell" class="TexAlCenter">224,79</td>
+                                    <td role="gridcell" class="TexAlCenter">28,54</td>
+                                    <td role="gridcell" class="TexAlCenter">24,20</td>
+                                 </tr>
+                                 <tr data-ri="6" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">06:00</td>
+                                    <td role="gridcell" class="TexAlCenter">247,17</td>
+                                    <td role="gridcell" class="TexAlCenter">31,38</td>
+                                    <td role="gridcell" class="TexAlCenter">26,61</td>
+                                 </tr>
+                                 <tr data-ri="7" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">07:00</td>
+                                    <td role="gridcell" class="TexAlCenter">300,09</td>
+                                    <td role="gridcell" class="TexAlCenter">38,10</td>
+                                    <td role="gridcell" class="TexAlCenter">32,31</td>
+                                 </tr>
+                                 <tr data-ri="8" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">08:00</td>
+                                    <td role="gridcell" class="TexAlCenter">311,59</td>
+                                    <td role="gridcell" class="TexAlCenter">39,56</td>
+                                    <td role="gridcell" class="TexAlCenter">33,55</td>
+                                 </tr>
+                                 <tr data-ri="9" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">09:00</td>
+                                    <td role="gridcell" class="TexAlCenter">316,62</td>
+                                    <td role="gridcell" class="TexAlCenter">40,20</td>
+                                    <td role="gridcell" class="TexAlCenter">34,09</td>
+                                 </tr>
+                                 <tr data-ri="10" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">10:00</td>
+                                    <td role="gridcell" class="TexAlCenter">312,96</td>
+                                    <td role="gridcell" class="TexAlCenter">39,74</td>
+                                    <td role="gridcell" class="TexAlCenter">33,70</td>
+                                 </tr>
+                                 <tr data-ri="11" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">11:00</td>
+                                    <td role="gridcell" class="TexAlCenter">314,77</td>
+                                    <td role="gridcell" class="TexAlCenter">39,97</td>
+                                    <td role="gridcell" class="TexAlCenter">33,89</td>
+                                 </tr>
+                                 <tr data-ri="12" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">12:00</td>
+                                    <td role="gridcell" class="TexAlCenter">309,12</td>
+                                    <td role="gridcell" class="TexAlCenter">39,25</td>
+                                    <td role="gridcell" class="TexAlCenter">33,28</td>
+                                 </tr>
+                                 <tr data-ri="13" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">13:00</td>
+                                    <td role="gridcell" class="TexAlCenter">312,70</td>
+                                    <td role="gridcell" class="TexAlCenter">39,70</td>
+                                    <td role="gridcell" class="TexAlCenter">33,67</td>
+                                 </tr>
+                                 <tr data-ri="14" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">14:00</td>
+                                    <td role="gridcell" class="TexAlCenter">319,36</td>
+                                    <td role="gridcell" class="TexAlCenter">40,55</td>
+                                    <td role="gridcell" class="TexAlCenter">34,39</td>
+                                 </tr>
+                                 <tr data-ri="15" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">15:00</td>
+                                    <td role="gridcell" class="TexAlCenter">321,02</td>
+                                    <td role="gridcell" class="TexAlCenter">40,76</td>
+                                    <td role="gridcell" class="TexAlCenter">34,57</td>
+                                 </tr>
+                                 <tr data-ri="16" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">16:00</td>
+                                    <td role="gridcell" class="TexAlCenter">321,90</td>
+                                    <td role="gridcell" class="TexAlCenter">40,87</td>
+                                    <td role="gridcell" class="TexAlCenter">34,66</td>
+                                 </tr>
+                                 <tr data-ri="17" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">17:00</td>
+                                    <td role="gridcell" class="TexAlCenter">327,34</td>
+                                    <td role="gridcell" class="TexAlCenter">41,56</td>
+                                    <td role="gridcell" class="TexAlCenter">35,25</td>
+                                 </tr>
+                                 <tr data-ri="18" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">18:00</td>
+                                    <td role="gridcell" class="TexAlCenter">328,61</td>
+                                    <td role="gridcell" class="TexAlCenter">41,72</td>
+                                    <td role="gridcell" class="TexAlCenter">35,38</td>
+                                 </tr>
+                                 <tr data-ri="19" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">19:00</td>
+                                    <td role="gridcell" class="TexAlCenter">324,56</td>
+                                    <td role="gridcell" class="TexAlCenter">41,21</td>
+                                    <td role="gridcell" class="TexAlCenter">34,95</td>
+                                 </tr>
+                                 <tr data-ri="20" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">20:00</td>
+                                    <td role="gridcell" class="TexAlCenter">321,95</td>
+                                    <td role="gridcell" class="TexAlCenter">40,88</td>
+                                    <td role="gridcell" class="TexAlCenter">34,67</td>
+                                 </tr>
+                                 <tr data-ri="21" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">21:00</td>
+                                    <td role="gridcell" class="TexAlCenter">317,81</td>
+                                    <td role="gridcell" class="TexAlCenter">40,35</td>
+                                    <td role="gridcell" class="TexAlCenter">34,22</td>
+                                 </tr>
+                                 <tr data-ri="22" class="ui-widget-content ui-datatable-even" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">22:00</td>
+                                    <td role="gridcell" class="TexAlCenter">313,96</td>
+                                    <td role="gridcell" class="TexAlCenter">39,86</td>
+                                    <td role="gridcell" class="TexAlCenter">33,80</td>
+                                 </tr>
+                                 <tr data-ri="23" class="ui-widget-content ui-datatable-odd" role="row">
+                                    <td role="gridcell" class="TexAlCenter">22/10/2020</td>
+                                    <td role="gridcell" class="TexAlCenter">23:00</td>
+                                    <td role="gridcell" class="TexAlCenter">308,97</td>
+                                    <td role="gridcell" class="TexAlCenter">39,23</td>
+                                    <td role="gridcell" class="TexAlCenter">33,27</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <div id="j_idt206:dt_paginator_bottom" class="ui-paginator ui-paginator-bottom ui-widget-header ui-corner-bottom" role="navigation" aria-label="Pagination">
+                           <span class="ui-paginator-current">(1 of 1)</span><a href="#" class="ui-paginator-first ui-state-default ui-corner-all ui-state-disabled" aria-label="First Page" tabindex="-1"><span class="ui-icon ui-icon-seek-first">F</span></a><a href="#" class="ui-paginator-prev ui-state-default ui-corner-all ui-state-disabled" aria-label="Previous Page" tabindex="-1"><span class="ui-icon ui-icon-seek-prev">P</span></a><span class="ui-paginator-pages"><a class="ui-paginator-page ui-state-default ui-state-active ui-corner-all" tabindex="0" href="#">1</a></span><a href="#" class="ui-paginator-next ui-state-default ui-corner-all ui-state-disabled" aria-label="Next Page" tabindex="-1"><span class="ui-icon ui-icon-seek-next">N</span></a><a href="#" class="ui-paginator-last ui-state-default ui-corner-all ui-state-disabled" aria-label="Last Page" tabindex="-1"><span class="ui-icon ui-icon-seek-end">E</span></a><label id="j_idt206:dt:j_id2_rppLabel" for="j_idt206:dt:j_id2" class="ui-paginator-rpp-label ui-helper-hidden">Rows Per Page</label>
+                           <select id="j_idt206:dt:j_id2" name="j_idt206:dt_rppDD" aria-labelledby="j_idt206:dt:j_id2_rppLabel" class="ui-paginator-rpp-options ui-widget ui-state-default ui-corner-left" value="24" autocomplete="off">
+                              <option value="24" selected="selected">24</option>
+                              <option value="48">48</option>
+                              <option value="72">72</option>
+                              <option value="96">96</option>
+                           </select>
+                           <script type="text/javascript" src="/transparency/javax.faces.resource/jsf.js.xhtml?ln=javax.faces"></script>
+                           <a href="#" onclick="mojarra.jsfcljs(document.getElementById('j_idt206'),{'j_idt206:dt:j_idt225':'j_idt206:dt:j_idt225'},'');return false"><img id="j_idt206:dt:j_idt226" src="/transparency/javax.faces.resource/images/excel.png.xhtml?ln=assets" alt="" width="24" title="Dışarı Aktar (XLS)" /></a><a href="#" onclick="mojarra.jsfcljs(document.getElementById('j_idt206'),{'j_idt206:dt:j_idt227':'j_idt206:dt:j_idt227'},'');return false"><img id="j_idt206:dt:j_idt228" src="/transparency/javax.faces.resource/images/csv.png.xhtml?ln=assets" alt="" width="24" title="Dışarı Aktar (CSV)" /></a><a href="#" onclick="mojarra.jsfcljs(document.getElementById('j_idt206'),{'j_idt206:dt:j_idt229':'j_idt206:dt:j_idt229'},'');return false"><img id="j_idt206:dt:j_idt230" src="/transparency/javax.faces.resource/images/xml.png.xhtml?ln=assets" alt="" width="24" title="Dışarı Aktar (XML)" /></a><a href="#" onclick="mojarra.jsfcljs(document.getElementById('j_idt206'),{'j_idt206:dt:j_idt231':'j_idt206:dt:j_idt231'},'');return false"><img id="j_idt206:dt:j_idt232" src="/transparency/javax.faces.resource/images/pdf.png.xhtml?ln=assets" alt="" width="24" title="Dışarı Aktar (PDF)" /></a>
+                        </div>
+                     </div>
+                     <script id="j_idt206:dt_s" type="text/javascript">$(function(){PrimeFaces.cw("DataTable","widget_j_idt206_dt",{id:"j_idt206:dt",paginator:{id:['j_idt206:dt_paginator_bottom'],rows:24,rowCount:24,page:0,currentPageTemplate:'({currentPage} of {totalPages})'},groupColumnIndexes:[]});});</script>
+                  </div>
+               </div>
+            </div>
+            <div class="Container60 Responsive100">
+               <div class="ContainerIndent">
+                  <div class="Card">
+                     <div id="chartdiv"></div>
+                     <script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/amcharts.js.xhtml?ln=assets"></script><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/serial.js.xhtml?ln=assets"></script><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/themes/light.js.xhtml?ln=assets"></script>
+                     <!--amCharts export libs--><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/plugins/export/libs/blob.js/blob.js.xhtml?ln=assets"></script><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/plugins/export/libs/fabric.js/fabric.min.js.xhtml?ln=assets"></script><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/plugins/export/libs/FileSaver.js/FileSaver.min.js.xhtml?ln=assets"></script><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/plugins/export/libs/jszip/jszip.min.js.xhtml?ln=assets"></script><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/plugins/export/libs/pdfmake/pdfmake.min.js.xhtml?ln=assets"></script><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/plugins/export/libs/xlsx/xlsx.min.js.xhtml?ln=assets"></script><script type="text/javascript" src="/transparency/javax.faces.resource/amcharts/plugins/export/export.min.js.xhtml?ln=assets"></script><script type="text/javascript">
+                        var downloadLabel1 = "Resim Olarak İndir";
+                        var downloadLabel2 = "Veri Olarak İndir";
+                        var data=[{"date":"22-10-2020 00:00","price":282.03,"priceUsd":35.81,"priceEur":30.37},{"date":"22-10-2020 01:00","price":257.18,"priceUsd":32.65,"priceEur":27.69},{"date":"22-10-2020 02:00","price":234,"priceUsd":29.71,"priceEur":25.2},{"date":"22-10-2020 03:00","price":224.99,"priceUsd":28.57,"priceEur":24.23},{"date":"22-10-2020 04:00","price":224.78,"priceUsd":28.54,"priceEur":24.2},{"date":"22-10-2020 05:00","price":224.79,"priceUsd":28.54,"priceEur":24.2},{"date":"22-10-2020 06:00","price":247.17,"priceUsd":31.38,"priceEur":26.61},{"date":"22-10-2020 07:00","price":300.09,"priceUsd":38.1,"priceEur":32.31},{"date":"22-10-2020 08:00","price":311.59,"priceUsd":39.56,"priceEur":33.55},{"date":"22-10-2020 09:00","price":316.62,"priceUsd":40.2,"priceEur":34.09},{"date":"22-10-2020 10:00","price":312.96,"priceUsd":39.74,"priceEur":33.7},{"date":"22-10-2020 11:00","price":314.77,"priceUsd":39.97,"priceEur":33.89},{"date":"22-10-2020 12:00","price":309.12,"priceUsd":39.25,"priceEur":33.28},{"date":"22-10-2020 13:00","price":312.7,"priceUsd":39.7,"priceEur":33.67},{"date":"22-10-2020 14:00","price":319.36,"priceUsd":40.55,"priceEur":34.39},{"date":"22-10-2020 15:00","price":321.02,"priceUsd":40.76,"priceEur":34.57},{"date":"22-10-2020 16:00","price":321.9,"priceUsd":40.87,"priceEur":34.66},{"date":"22-10-2020 17:00","price":327.34,"priceUsd":41.56,"priceEur":35.25},{"date":"22-10-2020 18:00","price":328.61,"priceUsd":41.72,"priceEur":35.38},{"date":"22-10-2020 19:00","price":324.56,"priceUsd":41.21,"priceEur":34.95},{"date":"22-10-2020 20:00","price":321.95,"priceUsd":40.88,"priceEur":34.67},{"date":"22-10-2020 21:00","price":317.81,"priceUsd":40.35,"priceEur":34.22},{"date":"22-10-2020 22:00","price":313.96,"priceUsd":39.86,"priceEur":33.8},{"date":"22-10-2020 23:00","price":308.97,"priceUsd":39.23,"priceEur":33.27}];
+                        var valueField="price";
+                        var valueField2="priceUsd";
+                        var valueField3="priceEur";
+                        var baloonTextUnit="TL/MWh";
+                        var baloonTextUnit2="USD/MWh";
+                        var baloonTextUnit3="EUR/MWh";
+                        var title="PTF";
+                        //console.log(data);
+                        var xtitle = "Saat";
+                        var filename="PTF-22102020";
+                        
+                        // <![CDATA[
+                        
+                        var ptfChart = AmCharts.makeChart("chartdiv", {
+                                "type": "serial",  "pathToImages": "/transparency/resources/assets/amcharts/images/","precision": 2,                 decimalSeparator:",",thousandsSeparator:".",
+                                "theme": "none",
+                                "marginRight": 40,
+                                "marginLeft": 50,
+                                "autoMarginOffset": 20,
+                                "colors": amChartsCorpColors,
+                                "dataDateFormat": "DD-MM-YYYY HH:mm",
+                                "precision": 2,
+                                "legend": {"useGraphSettings": true},
+                                "fontFamily":"GothamMedium",
+                                "valueAxes": [{
+                                    "id": "v1",
+                                    "axisAlpha": 0,
+                                    "position": "left",
+                                    "ignoreAxisWidth": true,
+                                    "usePrefixes": true,
+                                    "title": title
+                                }],
+                                "balloon": {
+                                    "borderThickness": 1,
+                                    "shadowAlpha": 0
+                                },
+                                "graphs": [
+                                    {
+                                    "id": "g1",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "bulletSize": 5,
+                                    "hideBulletsCount": 50,
+                                    "lineThickness": 2,
+                                    "lineColor": "#38a714",
+                                    "title": baloonTextUnit,
+                                    "useLineColorForBulletBorder": true,
+                                    "valueField": valueField,
+                                    "balloonText": "<span style='font-size:14px;'>[[value]]<br/>"+baloonTextUnit+"</span>"
+                                    },
+                                    {
+                                    "id": "g2",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "bulletSize": 5,
+                                    "hideBulletsCount": 50,
+                                    "lineThickness": 2,
+                                    "lineColor": "#3888dc",
+                                    "title": baloonTextUnit2,
+                                    "useLineColorForBulletBorder": true,
+                                    "valueField": valueField2,
+                                    "balloonText": "<span style='font-size:14px;'>[[value]]<br/>"+baloonTextUnit2+"</span>"
+                                    },
+                                    {
+                                    "id": "g3",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "lineColor": "#dc6738",
+                                    "bulletSize": 5,
+                                    "hideBulletsCount": 50,
+                                    "lineThickness": 2,
+                                    "title": baloonTextUnit3,
+                                    "useLineColorForBulletBorder": true,
+                                    "valueField": valueField3,
+                                    "balloonText": "<span style='font-size:14px;'>[[value]]<br/>"+baloonTextUnit3+"</span>"
+                                    }
+                                ],
+                                "chartCursor": {
+                                    "pan": true,
+                                    "valueLineEnabled": false,
+                                    "cursorAlpha": 1,
+                                    "cursorColor": "#258cbb",
+                                    "limitToGraph": "g1",
+                                    "valueLineAlpha": 0.2,
+                                    categoryBalloonDateFormat: "JJ:NN",
+                        
+                                    },
+                        
+                                "categoryField": "date",
+                                "categoryAxis": {
+                                    "parseDates": true,
+                                    "minPeriod": "hh",
+                                    "title": xtitle,
+                                    categoryBalloonDateFormat: "HH:00",
+                                    dateFormats: [{period: 'fff', format: 'JJ:NN:SS'}, {
+                                    period: 'ss',
+                                    format: 'JJ:NN:SS'
+                                    }, {period: 'mm', format: 'JJ:NN'}, {period: 'hh', format: 'JJ:NN'}, {
+                                    period: 'DD',
+                                    format: 'DD-MM-YYYY'
+                                    }, {period: 'WW', format: 'MMM DD'}, {period: 'MM', format: 'MMM'}, {
+                                    period: 'YYYY',
+                                    format: 'YYYY'
+                                    }]
+                                },
+                                "export": {
+                                    "fileName":filename,
+                                    "enabled": true,
+                                     "menu": [ {
+                                        "class": "export-main",
+                                        "menu": [ {
+                                          "label": downloadLabel1,
+                                          "menu": [ "PNG", "JPG"]
+                                        }]
+                                      } ]
+                                }
+                                ,
+                                "dataProvider": data,
+                            });
+                        
+                        // ]]>
+                     </script>
+                  </div>
+               </div>
+            </div>
+            <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:3" value="-8682634755801707540:8181594489163315100" autocomplete="off" />
+         </form>
+         <div class="Container100 TexAlCenter Gray FontGothamLight footer">
+            <div class="EmptyBox30"></div>
+            EPİAŞ ŞEFFAFLIK PLATFORMU | Tüm hakları saklıdır. Burada sunulan tüm görsel, grafik ve veriler bilgilendirme amaçlı olup söz konusu verilerden kaynaklanabilecek kayıp ve zararlardan dolayı Enerji Piyasaları İşletme A.Ş. hukuken sorumluluk kabul etmez. Sunulan tüm içerik ve veriler kaynak gösterilmek suretiyle çoğaltılabilir ve kullanılabilir. 7912 sayılı EPDK Kurul Kararı (Şeffaflık Platformunda Yayımlanacak Veriler) eki için <a target="_blank" href="https://www.epias.com.tr/wp-content/uploads/2018/07/seffaflık-platformu-yayimlanacak-veriler-listesi.pdf">tıklayınız.</a>
+         </div>
+      </div>
+      <div id="j_idt263"></div>
+      <script id="j_idt263_s" type="text/javascript">$(function(){PrimeFaces.cw("AjaxStatus","widget_j_idt263",{id:"j_idt263",start:function(){PF('statusDialog').show()},success:function(){PF('statusDialog').hide()}});});</script>
+      <div id="j_idt264" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-hidden-container">
+         <div class="ui-dialog-content ui-widget-content"><img id="loading" src="/transparency/javax.faces.resource/images/loading.gif.xhtml?ln=assets" /></div>
+      </div>
+      <script id="j_idt264_s" type="text/javascript">$(function(){PrimeFaces.cw("Dialog","statusDialog",{id:"j_idt264",draggable:false,resizable:false,modal:true});});</script>
+      <div id="j_idt265" style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+         <div id="j_idt265_start" style="display:none"><img id="j_idt266" src="/transparency/javax.faces.resource/images/preloader.gif.xhtml?ln=adamantium-layout" alt="" /></div>
+         <div id="j_idt265_complete" style="display:none"></div>
+      </div>
+      <script id="j_idt265_s" type="text/javascript">$(function(){PrimeFaces.cw("AjaxStatus","widget_j_idt265",{id:"j_idt265"});});</script>
+      <div class="feedback" onclick="PF('dlg2').show();">
+         <i class="fa fa-comment"></i>
+         <span>Görüşleriniz...</span>
+      </div>
+      <div id="j_idt277" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-hidden-container">
+         <div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top"><span id="j_idt277_title" class="ui-dialog-title">Görüşleriniz...</span><a href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" aria-label="Close"><span class="ui-icon ui-icon-closethick"></span></a></div>
+         <div class="ui-dialog-content ui-widget-content">Şeffaflık Platformu ile ilgili görüş, öneri ve talepleriniz için EPİAŞ Yardım Masası üzerinden bize ulaşabilirsiniz. EPİAŞ Yardım Masası için:
+            <a href="https://yardim.epias.com.tr/" target="_blank">https://yardim.epias.com.tr/</a>
+         </div>
+      </div>
+      <script id="j_idt277_s" type="text/javascript">$(function(){PrimeFaces.cw("Dialog","dlg2",{id:"j_idt277",resizable:false,modal:true,height:"60",responsive:true});});</script>
+      <script>
+         $(function () {
+             //active-menu-parent
+             $('.menulink.active-menu').parents('ul').addClass('active-menu').siblings('a').addClass('active-menu');
+             $('.menulink.active-menu').parents('li').addClass('active-menu-parent');
+         });
+      </script>
+      <script>
+         (function (i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function () {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }, i[r].l = 1 * new Date();
+             a = s.createElement(o),
+                     m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+         ga('create', 'UA-72969325-3', 'auto');
+         ga('send', 'pageview');
+         
+      </script>
+   </body>
+</html>
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'MINHNEBAIMHBCFBLIOHAHHFLBFFILPOJNHKPNOIOKGKDMFGOEMNLDPOKHNEPHHKAPDDLIELPGCEBHOIIDDBLJGGKPNNALBNPNHLMAELLOFIILMMBAEKCJHNANGBCOOED',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,48,(latency>>8));str=f5_cspm.set_byte(str,49,(latency&0xff));str=f5_cspm.set_byte(str,43,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='f5avr0036162025aaaaaaaaaaaaaaaa='+encodeURIComponent(cookie_val)+';path=/';}
+   return;}}
+   catch(err){return;}
+   setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'&&pair[1]=='1234')
+   {var d=new Date();d.setTime(d.getTime()-1000);window.document.cookie='f5_cspm=;expires='+d.toUTCString()+';path=/;';setTimeout(f5_cspm.wait_perf_data,100);}}}}
+   f5_cspm.go();}());
+</script>
