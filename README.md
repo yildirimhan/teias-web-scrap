@@ -1,6 +1,5 @@
 # teias-web-scrap
 
-![alt text](img/tkgm.png "TKGM")
 
 The intention of the tool is to scrap daily mcp prices from teias. Alı check for smf.py and uretim.py to get SMP and generation data respectively. Feel free to edit script to get any desired data.
 # Usage
